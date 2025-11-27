@@ -1,0 +1,8 @@
+AuthType Basic
+AuthName "Accés restringit"
+AuthUserFile /etc/apache2/.htpasswd
+
+<RequireAny>
+    Require ip 192.168.18.0/24
+    Require valid-user
+</RequireAny>

@@ -1,0 +1,5 @@
+# Permitir acceso solo desde la IP específica
+<RequireAll>
+    Require ip 85.192.71.235
+    Require all denied
+</RequireAll>

@@ -1,0 +1,8 @@
+AuthType Basic
+AuthName "Zona Restringida"
+AuthUserFile /etc/apache2/.htpasswd
+Require valid-user
+
+# Deshabilitar listado de archivos
+Options -Indexes
+

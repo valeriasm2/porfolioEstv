@@ -1,0 +1,34 @@
+html {
+    background-color: #49b2fc; /* For browsers that do not support gradients */
+    background-image: linear-gradient(#1b83f9, #49b2fc);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  p {
+    text-align: center; 
+    font-size: 2em;
+  }
+  .nubol {
+    position: absolute;
+    background-image: url(https://moodle.ieti.site/pluginfile.php/807/mod_page/content/9/nube.png);
+    background-size: cover;
+  }
+  .nubol1 {
+    top: 70px;
+    left: 25%;
+    width: 300px;
+    height: 180px;
+    z-index: -1;
+    
+  }
+  
+  .nubol2 {
+    top: 70px;
+    left: 25%;
+    width: 500px;
+    height: 180px;
+    z-index: -1;
+    
+  }
+  

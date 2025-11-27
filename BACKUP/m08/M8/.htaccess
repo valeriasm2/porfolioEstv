@@ -1,0 +1,19 @@
+Options FollowSymLinks
+RewriteEngine On
+RewriteBase /M8/
+
+# Regla para cambiar la extensión .html a .php
+RewriteRule ^(.+).html$ $1.php [nc]
+
+# Regla para URL amigables
+RewriteRule ^([a-z]+)/([0-9]+)/([0-9]+)$ operacion.php?op=$1&op1=$2&op2=$3
+
+# Reglas para agentes de usuario
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla
+RewriteRule ^$ /M8/operacion.max.php [L]
+
+RewriteCond %{HTTP_USER_AGENT} ^Lynx
+RewriteRule ^$ /M8/operaciones.min.php [L]
+
+# Regla por defecto
+RewriteRule ^$ /M8/operacion.php [L]

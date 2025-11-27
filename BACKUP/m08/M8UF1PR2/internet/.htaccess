@@ -1,0 +1,5 @@
+# Permitir acceso solo desde fuera de la red interna
+<RequireAll>
+    Require not ip 85.192.71.235
+    Require all granted
+</RequireAll>

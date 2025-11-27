@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Letras Muy Simple</title>
+</head>
+
+<body>
+
+    <h1>Juego de Letras</h1>
+    <p id="letraRandom" style="font-size:48px;"></p>
+    <input id="inputLetra" maxlength="1" style="text-transform:uppercase; font-size:24px;">
+    <p id="resultado" style="font-size:24px;"></p>
+
+    <script>
+        const letras = 'GFTDLJUSF';
+        let contador = 0, resultado = '';
+
+        function AddEventListener() {
+            if (contador >= 5) {
+                document.getElementById('letraRandom').textContent = 'Fin del juego';
+                document.getElementById('inputLetra').disabled = true;
+                return;
+            }
+
+            const letra = letras[Math.floor(Math.random() * letras.length)];
+            document.getElementById('letraRandom').textContent = letra;
+            document.getElementById('inputLetra').value = '';
+
+            const timeout = setTimeout(() => {
+                resultado += `<span style="color:red">${letra}</span> `;
+                document.getElementById('resultado').innerHTML = resultado;
+                contador++;
+                AddEventListener();
+            }, 1000);
+
+            const handler = () => {
+                clearTimeout(timeout);
+                resultado += `<span style="color:${document.getElementById('inputLetra').value.toUpperCase() === letra ? 'green' : 'red'}">${letra}</span> `;
+                document.getElementById('resultado').innerHTML = resultado;
+                contador++;
+                document.getElementById('inputLetra').removeEventListener('input', handler);
+                AddEventListener();
+            }
+
+            document.getElementById('inputLetra').addEventListener('input', handler);
+        }
+
+        AddEventListener();
+    </script>
+
+</body>
+
+</html>
